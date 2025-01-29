@@ -1,6 +1,7 @@
 'use client';
 import { Plus } from '@/components/icons/Plus';
 import { useEffect, useState } from 'react';
+import { AddingTask } from './AddingTask';
 
 export default function AddTask() {
     const [isFocused, setIsFocused] = useState(false);
@@ -37,10 +38,7 @@ export default function AddTask() {
                         }
                     `}
                     >
-                        <div className="bg-white p-4 rounded shadow-lg">
-                            {/* Your dropdown content here */}
-                            <p>Additional options or content</p>
-                        </div>
+                        <AddingTask />
                     </div>
                 </div>
             </main>
