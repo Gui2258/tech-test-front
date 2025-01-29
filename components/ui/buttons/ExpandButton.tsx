@@ -16,14 +16,21 @@ export const ExpandButton: React.FunctionComponent<IExpandButtonProps> = ({
             <button
                 className={clsx(
                     'flex font-bold py-2 px-4 rounded',
-                    { ' bg-gray-200 hover:bg-gray-300': !isDisabled },
-                    { ' bg-gray-600': isDisabled }
+                    { ' bg-[#ebf0f6] hover:bg-gray-300': !isDisabled },
+                    { ' bg-[#f2f6f9]': isDisabled }
                 )}
                 onMouseMove={() => setisHover(true)}
                 onMouseLeave={() => setisHover(false)}
             >
                 <Maximize isHover={isHover} isDisabled={true} />
-                Open
+                <span
+                    className={clsx(
+                        { ' text-[#182338] hover:bg-gray-300': !isDisabled },
+                        { ' text-[#8a8e98]': isDisabled }
+                    )}
+                >
+                    Open
+                </span>
             </button>
         </>
     );
