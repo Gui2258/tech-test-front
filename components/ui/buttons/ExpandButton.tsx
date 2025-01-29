@@ -1,16 +1,13 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Maximize } from '@/components/icons/Maximize';
 import clsx from 'clsx';
+import { addTask } from '../AddTask';
 
-interface IExpandButtonProps {
-    isDisabled: boolean;
-}
-
-export const ExpandButton: React.FunctionComponent<IExpandButtonProps> = ({
-    isDisabled,
-}) => {
+export const ExpandButton: React.FunctionComponent = ({}) => {
     const [isHover, setisHover] = useState(false);
+    const { taskText, showDorp } = useContext(addTask);
+    const isDisabled = taskText.length === 0 && showDorp;
     return (
         <>
             <button
@@ -22,7 +19,10 @@ export const ExpandButton: React.FunctionComponent<IExpandButtonProps> = ({
                 onMouseMove={() => setisHover(true)}
                 onMouseLeave={() => setisHover(false)}
             >
-                <Maximize isHover={isHover} isDisabled={true} />
+                <Maximize
+                    isHover={isHover}
+                    isDisabled={taskText.length == 0 && showDorp}
+                />
                 <span
                     className={clsx(
                         { ' text-[#182338] hover:bg-gray-300': !isDisabled },
