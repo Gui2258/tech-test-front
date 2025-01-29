@@ -3,7 +3,65 @@
 exports[`renders homepage unchanged 1`] = `
 <div>
   <main>
-    Hola mundo
+    <div
+      class="flex flex-col"
+    >
+      <div
+        class="flex"
+      >
+        <svg
+          class="feather feather-plus-square"
+          fill="none"
+          height="44"
+          stroke="#007fff"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="44"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="18"
+            rx="2"
+            ry="2"
+            width="18"
+            x="3"
+            y="3"
+          />
+          <line
+            x1="12"
+            x2="12"
+            y1="8"
+            y2="16"
+          />
+          <line
+            x1="8"
+            x2="16"
+            y1="12"
+            y2="12"
+          />
+        </svg>
+        <input
+          class="bg-gray-placeholder"
+          placeholder="Type to add new Task"
+        />
+      </div>
+      <div
+        class="
+                        transform transition-all duration-300 ease-in-out
+                        opacity-0 -translate-y-4 h-0
+                    "
+      >
+        <div
+          class="bg-white p-4 rounded shadow-lg"
+        >
+          <p>
+            Additional options or content
+          </p>
+        </div>
+      </div>
+    </div>
   </main>
 </div>
 `;
