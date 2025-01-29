@@ -1,7 +1,12 @@
+import { Plus } from '@/components/icons/Plus';
+
 export default function Home() {
-  return (
-    <>
-      <main>Hola mundo</main>
-    </>
-  );
+    return (
+        <>
+            <main>
+                <Plus />
+                Hola mundo
+            </main>
+        </>
+    );
 }
