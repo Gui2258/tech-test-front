@@ -2,9 +2,9 @@
 import React, { useContext, useState } from 'react';
 import clsx from 'clsx';
 import { addTask } from '../AddTask';
-import { CalendarIcon } from '@/components/icons/CalendarIcon';
+import { LockIcon } from '@/components/icons/LockIcon';
 
-export const CalendarButton: React.FunctionComponent = ({}) => {
+export const LoockButton: React.FunctionComponent = ({}) => {
     const [isHover, setisHover] = useState(false);
     const { taskText, showDorp } = useContext(addTask);
     const isDisabled = taskText.length === 0 && showDorp;
@@ -19,7 +19,7 @@ export const CalendarButton: React.FunctionComponent = ({}) => {
                 onMouseMove={() => setisHover(true)}
                 onMouseLeave={() => setisHover(false)}
             >
-                <CalendarIcon
+                <LockIcon
                     isHover={isHover}
                     isDisabled={taskText.length == 0 && showDorp}
                 />
@@ -29,7 +29,7 @@ export const CalendarButton: React.FunctionComponent = ({}) => {
                         { ' text-[#d2d5da]': isDisabled }
                     )}
                 >
-                    Today
+                    Public
                 </span>
             </button>
         </>
