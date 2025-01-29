@@ -43,8 +43,9 @@ exports[`renders homepage unchanged 1`] = `
           />
         </svg>
         <input
-          class="bg-gray-placeholder"
+          class="bg-gray-placeholder focus:outline-none"
           placeholder="Type to add new Task"
+          value=""
         />
       </div>
       <div
