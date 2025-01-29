@@ -1,14 +1,11 @@
 import React from 'react';
+import { ExpandButton } from './buttons/ExpandButton';
 
-interface IAddingTaskProps {}
-
-export const AddingTask: React.FunctionComponent<IAddingTaskProps> = () => {
+export const AddingTask: React.FunctionComponent = () => {
     return (
         <>
-            {' '}
             <div className="bg-white p-4 rounded shadow-lg">
-                {/* Your dropdown content here */}
-                <p>Additional options or content</p>
+                <ExpandButton isDisabled={true} />
             </div>
         </>
     );
