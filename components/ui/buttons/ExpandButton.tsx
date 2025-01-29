@@ -1,6 +1,6 @@
 'use client';
 import React, { useContext, useState } from 'react';
-import { Maximize } from '@/components/icons/Maximize';
+import { Maximize } from '@/components/icons/MaximizeIcon';
 import clsx from 'clsx';
 import { addTask } from '../AddTask';
 

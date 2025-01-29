@@ -3,20 +3,22 @@ import React from 'react';
 interface ImaximizeProps {
     isHover: boolean;
     isDisabled: boolean;
+    size?: string;
 }
 
 export const Maximize: React.FunctionComponent<ImaximizeProps> = ({
     isDisabled,
+    size = '24',
 }) => {
     return (
         <>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="44"
-                height="44"
+                width={size}
+                height={size}
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke={isDisabled ? '#8a8e98' : '#182338'}
+                stroke={isDisabled ? '#c3c6cd' : '#999fab'}
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"

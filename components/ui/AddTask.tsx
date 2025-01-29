@@ -1,5 +1,5 @@
 'use client';
-import { Plus } from '@/components/icons/Plus';
+import { Plus } from '@/components/icons/PlusIcon';
 import { createContext, useEffect, useState } from 'react';
 import { AddingTask } from './AddingTask';
 
