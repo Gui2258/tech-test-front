@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface ICalendarIconProps {
+interface ILockIconProps {
     isHover: boolean;
     isDisabled: boolean;
     size?: string;
 }
 
-export const CalendarIcon: React.FunctionComponent<ICalendarIconProps> = ({
+export const LockIcon: React.FunctionComponent<ILockIconProps> = ({
     isDisabled,
     size = '24',
 }) => {
@@ -22,12 +22,10 @@ export const CalendarIcon: React.FunctionComponent<ICalendarIconProps> = ({
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                className="feather feather-calendar"
+                className="feather feather-unlock"
             >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
             </svg>
         </>
     );
