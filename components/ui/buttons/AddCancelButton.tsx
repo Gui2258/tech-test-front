@@ -14,7 +14,6 @@ export const AddCancelButton: React.FunctionComponent<
     const [error, setError] = useState(false);
 
     const postTasks = async () => {
-        console.log(taskText);
         setLoading(true);
         setError(false);
         try {
@@ -28,6 +27,7 @@ export const AddCancelButton: React.FunctionComponent<
                 }),
             });
             setError(false);
+            window.location.reload();
         } catch (error) {
             console.error('Error al crear tarea');
             console.error(error);
@@ -39,8 +39,14 @@ export const AddCancelButton: React.FunctionComponent<
 
     return (
         <>
-            <button disabled={loading}>Cancel</button>
-            <button disabled={loading} onClick={() => postTasks()}>
+            <button className="p-6 bg-gray-300" disabled={loading}>
+                Cancel
+            </button>
+            <button
+                className="p-6 bg-blue-400"
+                disabled={loading}
+                onClick={() => postTasks()}
+            >
                 Add
             </button>
         </>

@@ -3,15 +3,50 @@ import { Plus } from '@/components/icons/PlusIcon';
 import { createContext, useEffect, useState } from 'react';
 import { AddingTask } from './AddingTask';
 import TextFormater from './TextFormater';
+import { serverFetcher } from '../api/serverFetcher';
+import { IContext, Itasks } from '@/utils/types';
+import { TasksList } from './TasksList';
 
-export const addTask = createContext({
+export const addTask = createContext<IContext>({
     showDorp: false,
     taskText: '',
+    setTasksList: () => {},
+    tasksList: [
+        {
+            id: '',
+            content: '',
+            checkDone: false,
+            isDeleted: false,
+        },
+    ],
+    tasKerror: false,
+    taskLoading: true,
 });
 export default function AddTask() {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
+    const [tasks, setTasks] = useState<Itasks[]>();
+    const [taskLoading, setTaskLoading] = useState(true);
+    const [tasKerror, setTaskError] = useState(false);
+
+    const getTasks = async () => {
+        setTaskLoading(true);
+        setTaskError(false);
+        try {
+            setTasks(await serverFetcher<Itasks[]>('/tasks'));
+            setTaskError(false);
+        } catch (error) {
+            console.error(error);
+            setTaskError(true);
+        } finally {
+            setTaskLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getTasks();
+    }, []);
 
     useEffect(() => {
         setShowDropdown(isFocused || inputValue.length > 0);
@@ -20,7 +55,14 @@ export default function AddTask() {
     return (
         <>
             <addTask.Provider
-                value={{ showDorp: showDropdown, taskText: inputValue }}
+                value={{
+                    showDorp: showDropdown,
+                    taskText: inputValue,
+                    setTasksList: setTasks,
+                    tasksList: tasks!,
+                    tasKerror,
+                    taskLoading,
+                }}
             >
                 <main>
                     <div className="flex flex-col">
@@ -50,6 +92,7 @@ export default function AddTask() {
                         </div>
                     </div>
                 </main>
+                <TasksList />
             </addTask.Provider>
         </>
     );

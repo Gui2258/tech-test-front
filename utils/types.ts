@@ -4,3 +4,12 @@ export interface Itasks {
     checkDone: boolean;
     isDeleted: boolean;
 }
+
+export interface IContext {
+    showDorp: boolean;
+    taskText: string;
+    tasksList: Itasks[];
+    setTasksList: (value: Itasks[]) => void;
+    tasKerror: boolean;
+    taskLoading: boolean;
+}
