@@ -2,7 +2,7 @@
 import { Plus } from '@/components/icons/PlusIcon';
 import { createContext, useEffect, useState } from 'react';
 import { AddingTask } from './AddingTask';
-import { highlightText } from '@/utils/TagDecoder';
+import TextFormater from './TextFormater';
 
 export const addTask = createContext({
     showDorp: false,
@@ -26,9 +26,12 @@ export default function AddTask() {
                     <div className="flex flex-col">
                         <div className="flex">
                             <Plus />
-                            {/* Contenedor relativo para el input y el overlay */}
                             <div className="relative flex-1">
-                                <input
+                                <TextFormater
+                                    setValue={setInputValue}
+                                    value={inputValue}
+                                />
+                                {/* <input
                                     className="w-full bg-gray-placeholder focus:outline-none caret-black"
                                     placeholder="Type to add new Task"
                                     value={inputValue}
@@ -45,7 +48,6 @@ export default function AddTask() {
                                         zIndex: 1,
                                     }}
                                 />
-                                {/* Overlay con texto resaltado */}
                                 {inputValue && (
                                     <div
                                         className="absolute inset-0 pointer-events-none"
@@ -59,6 +61,7 @@ export default function AddTask() {
                                         {highlightText(inputValue)}
                                     </div>
                                 )}
+                                */}
                             </div>
                         </div>
 

@@ -31,7 +31,13 @@ export const TasksList: React.FunctionComponent = () => {
         <>
             {loading && !error && <h1>Loading ...</h1>}
             {!loading && error && <h1>Error loading task ...</h1>}
-            {!loading && !error && <Tasks tasks={tasks!} />}
+            {!loading && !error && (
+                <ul>
+                    {tasks?.map((task) => (
+                        <Tasks key={task.id} task={task} />
+                    ))}
+                </ul>
+            )}
         </>
     );
 };

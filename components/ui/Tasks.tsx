@@ -2,18 +2,13 @@ import { Itasks } from '@/utils/types';
 import React from 'react';
 
 interface ITasksProps {
-    tasks: Itasks[];
+    task: Itasks;
 }
 
-export const Tasks: React.FunctionComponent<ITasksProps> = ({ tasks }) => {
+export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
     return (
         <>
-            {' '}
-            <ul>
-                {tasks?.map((task) => (
-                    <li key={task.id}>{task.content}</li>
-                ))}
-            </ul>
+            <h1>{task.content}</h1>
         </>
     );
 };
