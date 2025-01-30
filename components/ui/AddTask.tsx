@@ -30,38 +30,9 @@ export default function AddTask() {
                                 <TextFormater
                                     setValue={setInputValue}
                                     value={inputValue}
+                                    isFocused={isFocused}
+                                    setIsFocused={setIsFocused}
                                 />
-                                {/* <input
-                                    className="w-full bg-gray-placeholder focus:outline-none caret-black"
-                                    placeholder="Type to add new Task"
-                                    value={inputValue}
-                                    onChange={(e) =>
-                                        setInputValue(e.target.value)
-                                    }
-                                    onFocus={() => setIsFocused(true)}
-                                    onBlur={() => setIsFocused(false)}
-                                    style={{
-                                        color: inputValue
-                                            ? 'transparent'
-                                            : 'inherit',
-                                        position: 'relative',
-                                        zIndex: 1,
-                                    }}
-                                />
-                                {inputValue && (
-                                    <div
-                                        className="absolute inset-0 pointer-events-none"
-                                        style={{
-                                            zIndex: 2,
-                                            padding: 'inherit',
-                                            font: 'inherit',
-                                            lineHeight: 'inherit',
-                                        }}
-                                    >
-                                        {highlightText(inputValue)}
-                                    </div>
-                                )}
-                                */}
                             </div>
                         </div>
 
