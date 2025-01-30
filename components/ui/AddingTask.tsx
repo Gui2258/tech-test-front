@@ -7,7 +7,7 @@ import { SunButton } from './buttons/SunButton';
 export const AddingTask: React.FunctionComponent = () => {
     return (
         <>
-            <div className="bg-white p-4 rounded shadow-lg">
+            <div className="bg-white flex p-4 rounded shadow-lg">
                 <ExpandButton />
                 <CalendarButton />
                 <LoockButton />

@@ -1,11 +1,11 @@
 import AddTask from '@/components/ui/AddTask';
-import { Tasks } from '@/components/ui/Tasks';
+import { TasksList } from '@/components/ui/TasksList';
 
 export default function Home() {
     return (
         <>
             <AddTask />
-            <Tasks />
+            <TasksList />
         </>
     );
 }
