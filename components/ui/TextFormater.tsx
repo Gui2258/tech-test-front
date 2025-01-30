@@ -7,6 +7,9 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     value,
     setValue,
 }) => {
+    const commonStyles =
+        'p-2 w-full font-mono text-base leading-normal whitespace-pre';
+
     const processText = (text: string) => {
         const regex =
             /(#\w+|@\w+|\b[\w.-]+@[\w.-]+\.\w+\b|https?:\/\/\S+|www\.\S+)/g;
@@ -54,7 +57,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
 
     return (
         <div className="relative">
-            <div className="absolute p-2 w-full font-mono text-base leading-normal whitespace-pre pointer-events-none">
+            <div className={`absolute pointer-events-none ${commonStyles}`}>
                 {processText(value)}
             </div>
 
@@ -63,7 +66,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="Type something..."
-                className="relative p-2 w-full font-mono text-base leading-normal whitespace-pre bg-transparent text-transparent caret-black border border-gray-300"
+                className={`relative bg-transparent text-transparent caret-black border border-gray-300 ${commonStyles}`}
             />
         </div>
     );
