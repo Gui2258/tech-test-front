@@ -26,15 +26,40 @@ export default function AddTask() {
                     <div className="flex flex-col">
                         <div className="flex">
                             <Plus />
-                            <input
-                                className="bg-gray-placeholder focus:outline-none"
-                                placeholder="Type to add new Task"
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onFocus={() => setIsFocused(true)}
-                                onBlur={() => setIsFocused(false)}
-                            />
-                            <div>{highlightText(inputValue)}</div>
+                            {/* Contenedor relativo para el input y el overlay */}
+                            <div className="relative flex-1">
+                                <input
+                                    className="w-full bg-gray-placeholder focus:outline-none caret-black"
+                                    placeholder="Type to add new Task"
+                                    value={inputValue}
+                                    onChange={(e) =>
+                                        setInputValue(e.target.value)
+                                    }
+                                    onFocus={() => setIsFocused(true)}
+                                    onBlur={() => setIsFocused(false)}
+                                    style={{
+                                        color: inputValue
+                                            ? 'transparent'
+                                            : 'inherit',
+                                        position: 'relative',
+                                        zIndex: 1,
+                                    }}
+                                />
+                                {/* Overlay con texto resaltado */}
+                                {inputValue && (
+                                    <div
+                                        className="absolute inset-0 pointer-events-none"
+                                        style={{
+                                            zIndex: 2,
+                                            padding: 'inherit',
+                                            font: 'inherit',
+                                            lineHeight: 'inherit',
+                                        }}
+                                    >
+                                        {highlightText(inputValue)}
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         <div
