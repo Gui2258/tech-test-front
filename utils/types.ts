@@ -13,4 +13,5 @@ export interface IContext {
     tasKerror: boolean;
     taskLoading: boolean;
     getTasks: () => void;
+    setInputValue: (arg0: string) => void;
 }

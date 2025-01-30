@@ -22,6 +22,7 @@ export const addTask = createContext<IContext>({
     tasKerror: false,
     taskLoading: true,
     getTasks: () => {},
+    setInputValue: () => {},
 });
 export default function AddTask() {
     const [isFocused, setIsFocused] = useState(false);
@@ -64,6 +65,7 @@ export default function AddTask() {
                     tasKerror,
                     taskLoading,
                     getTasks,
+                    setInputValue,
                 }}
             >
                 <main>

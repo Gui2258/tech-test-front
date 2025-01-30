@@ -1,14 +1,22 @@
+import React, { useState } from 'react';
 import { Itasks } from '@/utils/types';
-import React from 'react';
+import TextFormater from './TextFormater';
 
 interface ITasksProps {
     task: Itasks;
 }
 
 export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
+    const [value, setValue] = useState(task.content);
+    const [isFocused, setIsFocused] = useState(false);
     return (
         <>
-            <h1>{task.content}</h1>
+            <TextFormater
+                setValue={setValue}
+                value={value}
+                isFocused={isFocused}
+                setIsFocused={setIsFocused}
+            />
         </>
     );
 };
