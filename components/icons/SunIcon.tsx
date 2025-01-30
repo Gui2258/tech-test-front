@@ -8,7 +8,7 @@ interface ISunIconProps {
 
 export const SunIcon: React.FunctionComponent<ISunIconProps> = ({
     isDisabled,
-    size,
+    size = '24',
 }) => {
     return (
         <>

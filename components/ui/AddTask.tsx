@@ -2,6 +2,7 @@
 import { Plus } from '@/components/icons/PlusIcon';
 import { createContext, useEffect, useState } from 'react';
 import { AddingTask } from './AddingTask';
+import { highlightText } from '@/utils/TagDecoder';
 
 export const addTask = createContext({
     showDorp: false,
@@ -33,6 +34,7 @@ export default function AddTask() {
                                 onFocus={() => setIsFocused(true)}
                                 onBlur={() => setIsFocused(false)}
                             />
+                            <div>{highlightText(inputValue)}</div>
                         </div>
 
                         <div
