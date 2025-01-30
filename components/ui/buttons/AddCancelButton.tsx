@@ -9,7 +9,7 @@ interface IAddCancelButtonProps {}
 export const AddCancelButton: React.FunctionComponent<
     IAddCancelButtonProps
 > = () => {
-    const { taskText } = useContext(addTask);
+    const { taskText, getTasks } = useContext(addTask);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -27,7 +27,7 @@ export const AddCancelButton: React.FunctionComponent<
                 }),
             });
             setError(false);
-            window.location.reload();
+            getTasks();
         } catch (error) {
             console.error('Error al crear tarea');
             console.error(error);

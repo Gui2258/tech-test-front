@@ -12,4 +12,5 @@ export interface IContext {
     setTasksList: (value: Itasks[]) => void;
     tasKerror: boolean;
     taskLoading: boolean;
+    getTasks: () => void;
 }
