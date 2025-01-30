@@ -2,7 +2,7 @@
 import { Plus } from '@/components/icons/PlusIcon';
 import { createContext, useEffect, useState } from 'react';
 import { AddingTask } from './AddingTask';
-import TextFormater from './TextFormater';
+import TextFormater from './InputFormater';
 import { serverFetcher } from '../api/serverFetcher';
 import { IContext, Itasks } from '@/utils/types';
 import { TasksList } from './TasksList';

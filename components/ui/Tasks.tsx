@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Itasks } from '@/utils/types';
-import TextFormater from './TextFormater';
+import TextFormater from './InputFormater';
 
 interface ITasksProps {
     task: Itasks;
