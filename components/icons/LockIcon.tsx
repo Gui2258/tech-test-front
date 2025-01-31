@@ -19,9 +19,9 @@ export const LockIcon: React.FunctionComponent<ILockIconProps> = ({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke={isDisabled ? '#c3c6cd' : '#999fab'}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="feather feather-unlock"
             >
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>

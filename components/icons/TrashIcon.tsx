@@ -19,9 +19,9 @@ export const TrashIcon: React.FunctionComponent<ITrashIconProps> = ({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke={isDisabled ? '#c3c6cd' : '#999fab'}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="feather feather-trash-2"
             >
                 <polyline points="3 6 5 6 21 6"></polyline>

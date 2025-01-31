@@ -19,9 +19,9 @@ export const SunIcon: React.FunctionComponent<ISunIconProps> = ({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke={isDisabled ? '#c3c6cd' : '#999fab'}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="feather feather-sun"
             >
                 <circle cx="12" cy="12" r="5"></circle>

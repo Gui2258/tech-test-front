@@ -19,8 +19,8 @@ export const Plus: React.FunctionComponent<IplusProps> = ({
                 fill="none"
                 stroke={color}
                 strokeWidth="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="feather feather-plus-square"
             >
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
