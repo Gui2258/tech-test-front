@@ -2,6 +2,7 @@ import { serverFetcher } from '@/components/api/serverFetcher';
 import React, { useContext } from 'react';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
+import PlusIcon from '../PlusIcon';
 
 interface IEliminateSaveButtonProps {
     value: string;
@@ -55,7 +56,7 @@ export const EliminateSaveButton: React.FunctionComponent<
                     else deleteTasks();
                 }}
             >
-                {isEditing ? 'Save' : 'Eliminar'}
+                <PlusIcon isClosing={!isEditing} />
             </button>
         </>
     );
