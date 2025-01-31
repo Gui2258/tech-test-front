@@ -54,6 +54,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                     value={value}
                     isFocused={isFocused}
                     setIsFocused={setIsFocused}
+                    isEditing={isEditing || isFocused}
                 />
             </div>
             <EliminateSaveButton

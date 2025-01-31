@@ -1,3 +1,4 @@
+import { TagProcesor } from '../utils/TagCreator';
 import { processText } from '../utils/TextProcesor';
 
 interface ITextFormaterProps {
@@ -5,13 +6,14 @@ interface ITextFormaterProps {
     setValue: (value: string) => void;
     isFocused: boolean;
     setIsFocused: (value: boolean) => void;
-    isListTask?: boolean;
+    isEditing?: boolean;
 }
 
 const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     value,
     setValue,
     setIsFocused,
+    isEditing = true,
 }) => {
     const commonStyles =
         'p-2 w-full font-mono text-base leading-normal whitespace-pre';
@@ -19,7 +21,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     return (
         <div className="relative">
             <div className={`absolute pointer-events-none ${commonStyles}`}>
-                {processText(value)}
+                {isEditing ? processText(value) : TagProcesor(value)}
             </div>
 
             <input
