@@ -1,18 +1,17 @@
 import { serverFetcher } from '@/components/api/serverFetcher';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
 
 interface IEliminateSaveButtonProps {
     value: string;
-    original: string;
+    isEditing: boolean;
     id: string;
 }
 
 export const EliminateSaveButton: React.FunctionComponent<
     IEliminateSaveButtonProps
-> = ({ original, value, id }) => {
-    const [isEditing, setisEditing] = useState(false);
+> = ({ value, id, isEditing }) => {
     const { getTasks } = useContext(addTask);
     const deleteTasks = async () => {
         try {
@@ -24,11 +23,12 @@ export const EliminateSaveButton: React.FunctionComponent<
             });
             getTasks();
         } catch (error) {
-            console.error('Error al crear tarea');
+            console.error('Error al eliminar tarea');
             console.error(error);
         }
     };
     const updateTasks = async () => {
+        console.log(updateTasks);
         try {
             await serverFetcher<Itasks>(`/tasks/${id}`, {
                 method: 'PATCH',
@@ -41,17 +41,15 @@ export const EliminateSaveButton: React.FunctionComponent<
             });
             getTasks();
         } catch (error) {
-            console.error('Error al crear tarea');
+            console.error('Error al actualizar tarea');
             console.error(error);
         }
     };
-    useEffect(() => {
-        setisEditing(original !== value);
-    }, [original, value]);
 
     return (
         <>
             <button
+                className="p-6 bg-gray-300 disabled:opacity-50 relative"
                 onClick={() => {
                     if (isEditing) updateTasks();
                     else deleteTasks();

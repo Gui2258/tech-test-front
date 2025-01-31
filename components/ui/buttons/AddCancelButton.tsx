@@ -57,7 +57,10 @@ export const AddCancelButton: React.FunctionComponent<
             <button
                 className="p-6 bg-blue-400 disabled:opacity-50 relative"
                 disabled={loading}
-                onClick={() => postTasks()}
+                onClick={() => {
+                    postTasks();
+                    setInputValue('');
+                }}
             >
                 {loading ? (
                     <div className="absolute inset-0 flex items-center justify-center">
