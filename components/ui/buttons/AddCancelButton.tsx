@@ -9,7 +9,7 @@ interface IAddCancelButtonProps {}
 export const AddCancelButton: React.FunctionComponent<
     IAddCancelButtonProps
 > = () => {
-    const { taskText, getTasks, setInputValue, showDorp } = useContext(addTask);
+    const { taskText, getTasks, setInputValue } = useContext(addTask);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -39,37 +39,45 @@ export const AddCancelButton: React.FunctionComponent<
 
     return (
         <>
-            <button
-                className="p-6 bg-gray-300 disabled:opacity-50 relative"
-                disabled={loading}
-                onClick={() => {
-                    setInputValue('');
-                }}
-            >
-                {loading ? (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-700"></div>
-                    </div>
-                ) : (
-                    'Cancel'
-                )}
-            </button>
-            <button
-                className="p-6 bg-blue-400 disabled:opacity-50 relative"
-                disabled={loading}
-                onClick={() => {
-                    postTasks();
-                    setInputValue('');
-                }}
-            >
-                {loading ? (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
-                    </div>
-                ) : (
-                    'Add'
-                )}
-            </button>
+            <div className="flex gap-1 ml-[400px]">
+                <button
+                    className="py-3 px-6 bg-[#EAF0F5] h-10 disabled:opacity-50 relative"
+                    disabled={loading}
+                    onClick={() => {
+                        setInputValue('');
+                    }}
+                >
+                    {loading ? (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-700"></div>
+                        </div>
+                    ) : (
+                        'Cancel'
+                    )}
+                </button>
+                <button
+                    className="py-3 px-6 bg-[#0D55CF] text-white h-10 disabled:opacity-50 relative"
+                    disabled={loading}
+                    onClick={() => {
+                        if (taskText.length === 0) {
+                            setInputValue('');
+                            return;
+                        }
+                        postTasks();
+                        setInputValue('');
+                    }}
+                >
+                    {loading ? (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+                        </div>
+                    ) : taskText.length > 0 ? (
+                        'Add'
+                    ) : (
+                        'OK'
+                    )}
+                </button>
+            </div>
         </>
     );
 };
