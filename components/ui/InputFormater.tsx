@@ -16,11 +16,13 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     isEditing = true,
 }) => {
     const commonStyles =
-        'p-2 w-full font-mono text-base leading-normal whitespace-pre';
+        'w-full font-mono text-base leading-normal whitespace-pre';
 
     return (
         <div className="relative">
-            <div className={`absolute pointer-events-none ${commonStyles}`}>
+            <div
+                className={`absolute pointer-events-none ${commonStyles} text-base leading-6 tracking-wider font-roboto`}
+            >
                 {isEditing ? processText(value) : TagProcesor(value)}
             </div>
 
@@ -29,7 +31,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="Type something..."
-                className={`relative bg-transparent text-transparent caret-black border border-gray-300 ${commonStyles}`}
+                className={`relative bg-transparent text-transparent caret-black border border-gray-300 ${commonStyles} text-base leading-6 tracking-wider font-roboto`}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
             />

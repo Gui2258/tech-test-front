@@ -70,15 +70,17 @@ export default function AddTask() {
             >
                 <main>
                     <div className="flex flex-col">
-                        <div className="flex">
-                            <Plus />
-                            <div className="relative flex-1">
-                                <TextFormater
-                                    setValue={setInputValue}
-                                    value={inputValue}
-                                    isFocused={isFocused}
-                                    setIsFocused={setIsFocused}
-                                />
+                        <div className="flex h-10 p-14">
+                            <div className="flex items-center gap-2">
+                                <Plus size="20" />
+                                <div className="relative flex-1 gap-3 pt-2">
+                                    <TextFormater
+                                        setValue={setInputValue}
+                                        value={inputValue}
+                                        isFocused={isFocused}
+                                        setIsFocused={setIsFocused}
+                                    />
+                                </div>
                             </div>
                         </div>
 
