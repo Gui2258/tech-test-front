@@ -12,9 +12,9 @@ export const ExpandButton: React.FunctionComponent = ({}) => {
         <>
             <button
                 className={clsx(
-                    'flex font-bold py-2 px-4 rounded',
-                    { ' bg-[#ebf0f6] hover:bg-gray-300': !isDisabled },
-                    { ' bg-[#f2f6f9]': isDisabled }
+                    'flex font-bold py-2 px-6 rounded justify-start items-center gap-2 bg-[#EAF0F5]',
+                    { ' hover:bg-gray-300': !isDisabled },
+                    { ' opacity-50': isDisabled }
                 )}
                 onMouseMove={() => setisHover(true)}
                 onMouseLeave={() => setisHover(false)}
@@ -25,8 +25,9 @@ export const ExpandButton: React.FunctionComponent = ({}) => {
                 />
                 <span
                     className={clsx(
-                        { ' text-[#182338] hover:bg-gray-300': !isDisabled },
-                        { ' text-[#8a8e98]': isDisabled }
+                        'font-roboto text-base text-[#04142F]',
+                        { '  hover:bg-gray-299': !isDisabled },
+                        { ' opacity-50': isDisabled }
                     )}
                 >
                     Open

@@ -6,6 +6,7 @@ import TextFormater from './InputFormater';
 import { serverFetcher } from '../api/serverFetcher';
 import { IContext, Itasks } from '@/utils/types';
 import { TasksList } from './TasksList';
+import Image from 'next/image';
 
 export const addTask = createContext<IContext>({
     showDorp: false,
@@ -70,10 +71,13 @@ export default function AddTask() {
             >
                 <main>
                     <div className="flex flex-col">
-                        <div className="flex h-10 p-14">
-                            <div className="flex items-center gap-2">
-                                <Plus size="20" />
-                                <div className="relative flex-1 gap-3 pt-2">
+                        <div className="flex h-10 p-14 w-full">
+                            <div
+                                id="input container"
+                                className="flex items-center w-full gap-2"
+                            >
+                                <Plus size="24" />
+                                <div className="relative flex flex-1 justify-between gap-3 ">
                                     <TextFormater
                                         setValue={setInputValue}
                                         value={inputValue}
@@ -81,6 +85,31 @@ export default function AddTask() {
                                         setIsFocused={setIsFocused}
                                     />
                                 </div>
+                                {showDropdown && (
+                                    <div className="relative">
+                                        <div
+                                            className={`
+                                        absolute inset-0 z-10 rounded-full
+                                        ${
+                                            inputValue.length === 0
+                                                ? 'bg-gray-300/70'
+                                                : ''
+                                        }  // Overlay gris con 50% de opacidad
+                                    `}
+                                        ></div>
+                                        <Image
+                                            src="/avatar-r.jpeg"
+                                            alt="User avatar"
+                                            className="rounded-full relative "
+                                            width={24}
+                                            height={24}
+                                            style={{
+                                                width: '24px',
+                                                height: '24px',
+                                            }}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
 

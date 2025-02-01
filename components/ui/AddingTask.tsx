@@ -8,12 +8,16 @@ import { AddCancelButton } from './buttons/AddCancelButton';
 export const AddingTask: React.FunctionComponent = () => {
     return (
         <>
-            <div className="bg-white flex p-4 rounded shadow-lg">
-                <ExpandButton />
-                <CalendarButton />
-                <LoockButton />
-                <SunButton />
-                <AddCancelButton />
+            <div className="bg-white flex p-4 rounded shadow-lg gap-8">
+                <div className="flex">
+                    <ExpandButton />
+                </div>
+                <div className="flex">
+                    <CalendarButton />
+                    <LoockButton />
+                    <SunButton />
+                    <AddCancelButton />
+                </div>
             </div>
         </>
     );
