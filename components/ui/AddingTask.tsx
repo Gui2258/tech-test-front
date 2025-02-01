@@ -12,7 +12,7 @@ export const AddingTask: React.FunctionComponent = () => {
                 <div className="flex">
                     <ExpandButton />
                 </div>
-                <div className="flex">
+                <div className="flex gap-1">
                     <CalendarButton />
                     <LoockButton />
                     <SunButton />

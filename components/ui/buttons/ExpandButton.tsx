@@ -12,7 +12,7 @@ export const ExpandButton: React.FunctionComponent = ({}) => {
         <>
             <button
                 className={clsx(
-                    'flex font-bold py-2 px-6 rounded justify-start items-center gap-2 bg-[#EAF0F5]',
+                    'flex font-bold py-2 px-6 rounded justify-center items-center w-28 h-10 gap-2 bg-[#EAF0F5]',
                     { ' hover:bg-gray-300': !isDisabled },
                     { ' opacity-50': isDisabled }
                 )}
@@ -24,11 +24,9 @@ export const ExpandButton: React.FunctionComponent = ({}) => {
                     isDisabled={taskText.length == 0 && showDorp}
                 />
                 <span
-                    className={clsx(
-                        'font-roboto text-base text-[#04142F]',
-                        { '  hover:bg-gray-299': !isDisabled },
-                        { ' opacity-50': isDisabled }
-                    )}
+                    className={clsx('font-roboto text-base text-[#04142F]', {
+                        ' opacity-50': isDisabled,
+                    })}
                 >
                     Open
                 </span>
