@@ -9,7 +9,7 @@ import { ZeroButton } from './buttons/ZeroButton';
 export const AddingTask: React.FunctionComponent = () => {
     return (
         <>
-            <div className="bg-white flex p-4 rounded shadow-lg gap-8">
+            <div className="bg-white flex p-2 rounded shadow-lg gap-8">
                 <div className="flex">
                     <ExpandButton />
                 </div>

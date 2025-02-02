@@ -11,7 +11,7 @@ export const TasksList: React.FunctionComponent = () => {
             {taskLoading && !tasKerror && <h1>Loading ...</h1>}
             {!taskLoading && tasKerror && <h1>Error loading task ...</h1>}
             {!taskLoading && !tasKerror && (
-                <ul>
+                <ul className="mt-10">
                     {tasksList?.map((task) => (
                         <Tasks key={task.id} task={task} />
                     ))}

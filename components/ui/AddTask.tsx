@@ -7,6 +7,7 @@ import { serverFetcher } from '../api/serverFetcher';
 import { IContext, Itasks } from '@/utils/types';
 import { TasksList } from './TasksList';
 import Image from 'next/image';
+import clsx from 'clsx';
 
 export const addTask = createContext<IContext>({
     showDorp: false,
@@ -70,14 +71,26 @@ export default function AddTask() {
                 }}
             >
                 <main>
-                    <div className="flex flex-col">
-                        <div className="flex h-10 p-14 w-full">
+                    <div
+                        id="main container"
+                        className={clsx(
+                            'flex mt-14 mx-14 h-[116px] flex-col  mb-4',
+                            {
+                                'shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
+                                    showDropdown,
+                            }
+                        )}
+                    >
+                        <div id="newTask and avatar div" className="flex h-1/2">
                             <div
                                 id="input container"
-                                className="flex items-center w-full gap-2"
+                                className="flex  items-center ml-4 mr-2 mt-2 w-full gap-3"
                             >
                                 <Plus size="24" />
-                                <div className="relative flex flex-1 justify-between gap-3 ">
+                                <div
+                                    id="text container"
+                                    className="relative flex flex-1 justify-between gap-3 "
+                                >
                                     <TextFormater
                                         setValue={setInputValue}
                                         value={inputValue}
@@ -115,10 +128,10 @@ export default function AddTask() {
 
                         <div
                             className={`
-                            transform transition-all duration-300 ease-in-out
+                            transform h-1/2 transition-all duration-300 ease-in-out
                             ${
                                 showDropdown
-                                    ? 'opacity-100 translate-y-2 h-32 pointer-events-auto'
+                                    ? 'opacity-100 translate-y-2  pointer-events-auto'
                                     : 'opacity-0 -translate-y-4 h-0 pointer-events-none'
                             }
                             `}
