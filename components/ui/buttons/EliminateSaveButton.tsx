@@ -50,11 +50,11 @@ export const EliminateSaveButton: React.FunctionComponent<
     return (
         <>
             <div className="flex gap-1">
-                <button className="p-6 bg-gray-300 rounded  hidden xl:flex items-center h-10 disabled:opacity-50 relative">
+                <button className="py-3 px-6 bg-[#EAF0F5] rounded hidden xl:flex h-10 disabled:opacity-50 relative">
                     Cancelar
                 </button>
                 <button
-                    className="p-6 bg-[#0D55CF] h-10 rounded flex items-center text-white disabled:opacity-50 relative"
+                    className="p-2 xl:py-3 xl:px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
                     onClick={() => {
                         if (isEditing) updateTasks();
                         else deleteTasks();

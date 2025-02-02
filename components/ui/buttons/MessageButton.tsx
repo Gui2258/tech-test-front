@@ -31,7 +31,7 @@ export const MessageButton: React.FunctionComponent = ({}) => {
                         { ' text-[#d2d5da]': isDisabled }
                     )}
                 >
-                    Today
+                    Comment
                 </span>
             </button>
         </>

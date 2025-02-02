@@ -75,10 +75,9 @@ export default function AddTask() {
                         id="main container"
                         className={clsx(
                             'flex  mx-10 flex-col',
-                            { ' h-[116px]': showDropdown },
                             { ' h-[40px]': !showDropdown },
                             {
-                                'shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
+                                ' h-[116px] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                                     showDropdown,
                             }
                         )}
@@ -130,9 +129,7 @@ export default function AddTask() {
 
                         <div
                             className={`
-                            transform ${
-                                showDropdown ? '' : ''
-                            } transition-all duration-300 h-1/2 ease-in-out
+                            transform transition-all duration-300 h-1/2 ease-in-out
                             ${
                                 showDropdown
                                     ? 'opacity-100 translate-y-2  pointer-events-auto'

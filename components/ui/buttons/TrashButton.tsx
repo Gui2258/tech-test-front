@@ -31,7 +31,7 @@ export const TrashButton: React.FunctionComponent = ({}) => {
                         { ' text-[#d2d5da]': isDisabled }
                     )}
                 >
-                    Today
+                    Delete
                 </span>
             </button>
         </>
