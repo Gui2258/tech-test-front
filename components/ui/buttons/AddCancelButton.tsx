@@ -57,7 +57,7 @@ export const AddCancelButton: React.FunctionComponent<
                     )}
                 </button>
                 <button
-                    className="py-3 px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
+                    className="p-2 xl:py-3 xl:px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
                     disabled={loading}
                     onClick={() => {
                         if (taskText.length === 0) {

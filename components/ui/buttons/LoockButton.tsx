@@ -12,7 +12,7 @@ export const LoockButton: React.FunctionComponent = ({}) => {
         <>
             <button
                 className={clsx(
-                    'flex font-bold py-2 pl-4 pr-6 gap-3  justify-center items-center w-32 h-10 rounded border-solid border-2',
+                    'flex font-bold p-2 xl:py-2 xl:pl-4 xl:pr-6 gap-3  justify-center items-center  h-10 rounded xl:border-solid xl:border-2',
                     { ' border-[#cfd1d0] hover:bg-gray-200': !isDisabled },
                     { ' border-[#eaeceb]': isDisabled }
                 )}
@@ -25,6 +25,7 @@ export const LoockButton: React.FunctionComponent = ({}) => {
                 />
                 <span
                     className={clsx(
+                        'hidden xl:block',
                         { ' text-[#9296a1] ': !isDisabled },
                         { ' text-[#d2d5da]': isDisabled }
                     )}
