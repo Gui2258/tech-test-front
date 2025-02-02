@@ -46,30 +46,32 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
 
     return (
         <>
-            <div className="flex  items-center w-full ml-[56px] gap-3 pt-2">
-                <input
-                    className="p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
-                    type="checkbox"
-                    disabled={loading}
-                    checked={task.checkDone}
-                    onChange={() => {
-                        toggleTasks();
-                    }}
-                />
-                <TextFormater
-                    setValue={setValue}
-                    value={value}
+            <div className="ml-[56px]">
+                <div className="flex  items-center w-full  gap-3 pt-2">
+                    <input
+                        className="p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
+                        type="checkbox"
+                        disabled={loading}
+                        checked={task.checkDone}
+                        onChange={() => {
+                            toggleTasks();
+                        }}
+                    />
+                    <TextFormater
+                        setValue={setValue}
+                        value={value}
+                        isFocused={isFocused}
+                        setIsFocused={setIsFocused}
+                        isEditing={isEditing || isFocused}
+                    />
+                </div>
+                <TaskDrop
+                    isEditing={isEditing}
                     isFocused={isFocused}
-                    setIsFocused={setIsFocused}
-                    isEditing={isEditing || isFocused}
+                    value={value}
+                    tasID={task.id}
                 />
             </div>
-            <TaskDrop
-                isEditing={isEditing}
-                isFocused={isFocused}
-                value={value}
-                tasID={task.id}
-            />
         </>
     );
 };
