@@ -10,14 +10,18 @@ export const AddingTask: React.FunctionComponent = () => {
     return (
         <>
             <div className="bg-white flex p-2 rounded shadow-lg gap-8">
-                <div className="flex">
-                    <ExpandButton />
+                <div id="action buttons" className="flex gap-8">
+                    <div>
+                        <ExpandButton />
+                    </div>
+                    <div className="flex gap-1">
+                        <CalendarButton />
+                        <LoockButton />
+                        <SunButton />
+                        <ZeroButton />
+                    </div>
                 </div>
-                <div className="flex gap-1">
-                    <CalendarButton />
-                    <LoockButton />
-                    <SunButton />
-                    <ZeroButton />
+                <div id="add cancel cta" className="self-end ml-auto">
                     <AddCancelButton />
                 </div>
             </div>

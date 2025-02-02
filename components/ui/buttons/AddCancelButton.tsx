@@ -40,7 +40,7 @@ export const AddCancelButton: React.FunctionComponent<
 
     return (
         <>
-            <div className="flex gap-1 ml-[400px]">
+            <div className="flex gap-1 ">
                 <button
                     className="py-3 px-6 bg-[#EAF0F5] hidden xl:flex h-10 disabled:opacity-50 relative"
                     disabled={loading}

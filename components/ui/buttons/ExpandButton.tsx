@@ -12,7 +12,7 @@ export const ExpandButton: React.FunctionComponent = ({}) => {
         <>
             <button
                 className={clsx(
-                    'flex font-bold py-2 px-6 rounded justify-center items-center w-28 h-10 gap-2 bg-[#EAF0F5]',
+                    'flex font-bold py-2 pl-4 pr-6 rounded justify-center items-center w-28 h-10 gap-2 bg-[#EAF0F5]',
                     { ' hover:bg-gray-300': !isDisabled },
                     { ' opacity-50': isDisabled }
                 )}
