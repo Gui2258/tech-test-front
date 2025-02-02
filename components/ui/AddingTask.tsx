@@ -4,6 +4,7 @@ import { CalendarButton } from './buttons/CalendarButton';
 import { LoockButton } from './buttons/LoockButton';
 import { SunButton } from './buttons/SunButton';
 import { AddCancelButton } from './buttons/AddCancelButton';
+import { ZeroButton } from './buttons/ZeroButton';
 
 export const AddingTask: React.FunctionComponent = () => {
     return (
@@ -16,6 +17,7 @@ export const AddingTask: React.FunctionComponent = () => {
                     <CalendarButton />
                     <LoockButton />
                     <SunButton />
+                    <ZeroButton />
                     <AddCancelButton />
                 </div>
             </div>
