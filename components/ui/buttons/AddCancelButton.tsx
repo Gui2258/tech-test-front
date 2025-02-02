@@ -42,7 +42,7 @@ export const AddCancelButton: React.FunctionComponent<
         <>
             <div className="flex gap-1 ">
                 <button
-                    className="py-3 px-6 bg-[#EAF0F5] hidden xl:flex h-10 disabled:opacity-50 relative"
+                    className="py-3 px-6 bg-[#EAF0F5] rounded hidden xl:flex h-10 disabled:opacity-50 relative"
                     disabled={loading}
                     onClick={() => {
                         setInputValue('');
@@ -57,7 +57,7 @@ export const AddCancelButton: React.FunctionComponent<
                     )}
                 </button>
                 <button
-                    className="py-3 px-6 bg-[#0D55CF] text-white h-10 disabled:opacity-50 relative"
+                    className="py-3 px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
                     disabled={loading}
                     onClick={() => {
                         if (taskText.length === 0) {
@@ -69,18 +69,22 @@ export const AddCancelButton: React.FunctionComponent<
                     }}
                 >
                     {loading ? (
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
                             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                         </div>
                     ) : taskText.length > 0 ? (
                         <>
-                            <span className=" hidden xl:flex">Add</span>
-                            <PlusIcon isClosing={false} />
+                            <span className="hidden xl:block mr-2">Add</span>
+                            <span className="block xl:hidden z-20 relative">
+                                <PlusIcon isClosing={false} />
+                            </span>
                         </>
                     ) : (
                         <>
-                            <span className=" hidden xl:flex">OK</span>
-                            <PlusIcon isClosing={true} />
+                            <span className="hidden xl:block mr-2">OK</span>
+                            <span className="z-20 relative block xl:hidden">
+                                <PlusIcon isClosing={true} />
+                            </span>
                         </>
                     )}
                 </button>
