@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
 import { serverFetcher } from '@/components/api/serverFetcher';
+import PlusIcon from '../PlusIcon';
 
 interface IAddCancelButtonProps {}
 
@@ -41,14 +42,14 @@ export const AddCancelButton: React.FunctionComponent<
         <>
             <div className="flex gap-1 ml-[400px]">
                 <button
-                    className="py-3 px-6 bg-[#EAF0F5] h-10 disabled:opacity-50 relative"
+                    className="py-3 px-6 bg-[#EAF0F5] hidden xl:flex h-10 disabled:opacity-50 relative"
                     disabled={loading}
                     onClick={() => {
                         setInputValue('');
                     }}
                 >
                     {loading ? (
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="absolute inset-0  justify-center">
                             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-700"></div>
                         </div>
                     ) : (
@@ -72,9 +73,15 @@ export const AddCancelButton: React.FunctionComponent<
                             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                         </div>
                     ) : taskText.length > 0 ? (
-                        'Add'
+                        <>
+                            <span className=" hidden xl:flex">Add</span>
+                            <PlusIcon isClosing={false} />
+                        </>
                     ) : (
-                        'OK'
+                        <>
+                            <span className=" hidden xl:flex">OK</span>
+                            <PlusIcon isClosing={true} />
+                        </>
                     )}
                 </button>
             </div>
