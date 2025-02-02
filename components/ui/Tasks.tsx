@@ -3,7 +3,6 @@ import { Itasks } from '@/utils/types';
 import TextFormater from './InputFormater';
 import { serverFetcher } from '../api/serverFetcher';
 import { addTask } from './AddTask';
-import { EliminateSaveButton } from './buttons/EliminateSaveButton';
 import { TaskDrop } from './TaskDrop';
 
 interface ITasksProps {
@@ -39,12 +38,19 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
         setisEditing(task.content !== value);
     }, [task.content, value]);
 
+    useEffect(() => {
+        if (!isFocused) {
+            setValue(task.content);
+        }
+    }, [isFocused, task.content]);
+
     return (
         <>
             <div className="flex mt-8 items-center w-full ml-[56px] gap-3 pt-2">
                 <input
-                    className="p-3 w-6  h-6 border-[#8A94A6] rounded border-[1px]"
+                    className="p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
                     type="checkbox"
+                    disabled={loading}
                     checked={task.checkDone}
                     onChange={() => {
                         toggleTasks();

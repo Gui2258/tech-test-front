@@ -50,17 +50,19 @@ export const EliminateSaveButton: React.FunctionComponent<
 
     return (
         <>
-            {
-                <button
-                    className="p-6 bg-gray-300 disabled:opacity-50 relative"
-                    onClick={() => {
-                        if (isEditing) updateTasks();
-                        else deleteTasks();
-                    }}
-                >
-                    <SaveIcon isDisabled={!isEditing} isHover={isEditing} />
-                </button>
-            }
+            <button className="p-6 bg-gray-300 flex items-center h-10 disabled:opacity-50 relative">
+                Cancelar
+            </button>
+            <button
+                className="p-6 bg-[#0D55CF] h-10 flex items-center text-white disabled:opacity-50 relative"
+                onClick={() => {
+                    if (isEditing) updateTasks();
+                    else deleteTasks();
+                }}
+            >
+                <span className="hidden xl:inline-block">Guardar</span>
+                <SaveIcon isDisabled={!isEditing} isHover={isEditing} />
+            </button>
         </>
     );
 };

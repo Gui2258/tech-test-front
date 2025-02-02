@@ -21,8 +21,8 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
                 className={`transform mt-2 transition-all duration-300 ease-in-out
                                     ${
                                         isFocused
-                                            ? 'opacity-100 translate-y-2 h-32'
-                                            : 'opacity-0 -translate-y-4 h-0'
+                                            ? 'opacity-100 translate-y-2 h-32  pointer-events-auto'
+                                            : 'opacity-0 -translate-y-4 h-0 pointer-events-none'
                                     }
                                     `}
             >
