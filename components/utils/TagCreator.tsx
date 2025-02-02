@@ -10,7 +10,7 @@ export const TagProcesor = (text: string) => {
             return (
                 <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-purple-600 bg-purple-100"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-purple-600 bg-[#e5d6ff]"
                 >
                     {/* <FaHashtag className="w-3 h-3" />
                      */}{' '}
@@ -22,7 +22,7 @@ export const TagProcesor = (text: string) => {
             return (
                 <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-green-600 bg-green-100"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[#189e71] bg-[#a9f1d9]"
                 >
                     {/* <FaAt className="w-3 h-3" /> */}
                     {part}
@@ -33,7 +33,7 @@ export const TagProcesor = (text: string) => {
             return (
                 <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-orange-500 bg-orange-100"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-orange-500 bg-[#ffe6c7]"
                 >
                     {/* <FaEnvelope className="w-3 h-3" /> */}
                     {part}
@@ -44,7 +44,7 @@ export const TagProcesor = (text: string) => {
             return (
                 <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-blue-600 bg-blue-100"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-blue-600 bg-[#d3e8fc]"
                 >
                     {/* <FaLink className="w-3 h-3" /> */}
                     {part}

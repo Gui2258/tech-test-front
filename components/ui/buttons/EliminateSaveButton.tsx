@@ -3,6 +3,7 @@ import { serverFetcher } from '@/components/api/serverFetcher';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
 import PlusIcon from '../PlusIcon';
+import { SaveIcon } from '@/components/icons/SaveIcon';
 
 interface IEliminateSaveButtonProps {
     value: string;
@@ -49,15 +50,17 @@ export const EliminateSaveButton: React.FunctionComponent<
 
     return (
         <>
-            <button
-                className="p-6 bg-gray-300 disabled:opacity-50 relative"
-                onClick={() => {
-                    if (isEditing) updateTasks();
-                    else deleteTasks();
-                }}
-            >
-                <PlusIcon isClosing={!isEditing} />
-            </button>
+            {
+                <button
+                    className="p-6 bg-gray-300 disabled:opacity-50 relative"
+                    onClick={() => {
+                        if (isEditing) updateTasks();
+                        else deleteTasks();
+                    }}
+                >
+                    <SaveIcon isDisabled={!isEditing} isHover={isEditing} />
+                </button>
+            }
         </>
     );
 };

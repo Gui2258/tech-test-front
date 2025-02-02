@@ -4,6 +4,7 @@ import TextFormater from './InputFormater';
 import { serverFetcher } from '../api/serverFetcher';
 import { addTask } from './AddTask';
 import { EliminateSaveButton } from './buttons/EliminateSaveButton';
+import { TaskDrop } from './TaskDrop';
 
 interface ITasksProps {
     task: Itasks;
@@ -40,9 +41,9 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
 
     return (
         <>
-            <div className="flex w-full">
+            <div className="flex mt-8 items-center w-full ml-[56px] gap-3 pt-2">
                 <input
-                    className="p-3 "
+                    className="p-3 w-6  h-6 border-[#8A94A6] rounded border-[1px]"
                     type="checkbox"
                     checked={task.checkDone}
                     onChange={() => {
@@ -57,10 +58,11 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                     isEditing={isEditing || isFocused}
                 />
             </div>
-            <EliminateSaveButton
-                id={task.id}
+            <TaskDrop
                 isEditing={isEditing}
+                isFocused={isFocused}
                 value={value}
+                tasID={task.id}
             />
         </>
     );
