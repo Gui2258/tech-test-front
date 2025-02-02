@@ -70,11 +70,13 @@ export default function AddTask() {
                     setInputValue,
                 }}
             >
-                <main>
+                <main className="mt-14">
                     <div
                         id="main container"
                         className={clsx(
-                            'flex mt-14 mx-14 h-[116px] flex-col  mb-4',
+                            'flex  mx-10 flex-col',
+                            { ' h-[116px]': showDropdown },
+                            { ' h-[40px]': !showDropdown },
                             {
                                 'shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                                     showDropdown,
@@ -84,7 +86,7 @@ export default function AddTask() {
                         <div id="newTask and avatar div" className="flex h-1/2">
                             <div
                                 id="input container"
-                                className="flex  items-center ml-4 mr-2 mt-2 w-full gap-3"
+                                className={`flex  items-center ml-4 mr-2 mt-2 w-full gap-3`}
                             >
                                 <Plus size="24" />
                                 <div
@@ -128,7 +130,9 @@ export default function AddTask() {
 
                         <div
                             className={`
-                            transform h-1/2 transition-all duration-300 ease-in-out
+                            transform ${
+                                showDropdown ? '' : ''
+                            } transition-all duration-300 h-1/2 ease-in-out
                             ${
                                 showDropdown
                                     ? 'opacity-100 translate-y-2  pointer-events-auto'
@@ -139,8 +143,8 @@ export default function AddTask() {
                             <AddingTask />
                         </div>
                     </div>
+                    <TasksList />
                 </main>
-                <TasksList />
             </addTask.Provider>
         </>
     );
