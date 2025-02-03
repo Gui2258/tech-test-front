@@ -14,7 +14,7 @@ interface IEliminateSaveButtonProps {
 
 export const EliminateSaveButton: React.FunctionComponent<
     IEliminateSaveButtonProps
-> = ({ value, id, isEditing, setTaskFocused, taskID, cancelFunction }) => {
+> = ({ value, id, isEditing, setTaskFocused, cancelFunction }) => {
     const { getTasks } = useContext(addTask);
     const deleteTasks = async () => {
         try {
