@@ -46,12 +46,13 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
     };
 
     useEffect(() => {
-        if (taskFocusedID === task.id || isEditing) {
+        if (taskFocusedID === task.id) {
             setShowDrop(true);
         } else {
+            setValue(task.content);
             setShowDrop(false);
         }
-    }, [task, taskFocusedID]);
+    }, [isEditing, task, taskFocusedID]);
 
     useEffect(() => {
         setisEditing(task.content !== value);
@@ -76,6 +77,9 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
         }
     }, [isFocused, task.content]); */
 
+    const cancel = () => {
+        setTaskFocusedID('');
+    };
     return (
         <>
             <div
@@ -126,6 +130,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
                     isFocused={showDrop}
                     value={value}
                     tasID={task.id}
+                    cancelFuction={cancel}
                 />
             </div>
         </>

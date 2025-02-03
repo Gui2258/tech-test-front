@@ -9,11 +9,12 @@ interface IEliminateSaveButtonProps {
     isEditing: boolean;
     id: string;
     setTaskFocused: (arg0: string) => void;
+    cancelFunction: () => void;
 }
 
 export const EliminateSaveButton: React.FunctionComponent<
     IEliminateSaveButtonProps
-> = ({ value, id, isEditing, setTaskFocused }) => {
+> = ({ value, id, isEditing, setTaskFocused, taskID, cancelFunction }) => {
     const { getTasks } = useContext(addTask);
     const deleteTasks = async () => {
         try {
@@ -30,7 +31,6 @@ export const EliminateSaveButton: React.FunctionComponent<
         }
     };
     const updateTasks = async () => {
-        console.log(updateTasks);
         try {
             await serverFetcher<Itasks>(`/tasks/${id}`, {
                 method: 'PATCH',
@@ -48,13 +48,12 @@ export const EliminateSaveButton: React.FunctionComponent<
             console.error(error);
         }
     };
-
     return (
         <>
             <div className="flex gap-1">
                 <button
                     onClick={() => {
-                        setTaskFocused('');
+                        cancelFunction();
                     }}
                     className="py-3 px-6 bg-[#EAF0F5] rounded hidden xl:flex h-10 disabled:opacity-50 relative"
                 >

@@ -13,6 +13,7 @@ interface ITaskDropProps {
     value: string;
     tasID: string;
     setTaskFocused: (arg0: string) => void;
+    cancelFuction: () => void;
 }
 
 export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
@@ -21,6 +22,7 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
     value,
     tasID,
     setTaskFocused,
+    cancelFuction,
 }) => {
     return (
         <>
@@ -52,6 +54,7 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
                             id={tasID}
                             isEditing={isEditing}
                             value={value}
+                            cancelFunction={cancelFuction}
                         />
                     </div>
                 </div>
