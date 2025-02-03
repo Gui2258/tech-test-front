@@ -5,6 +5,7 @@ import { serverFetcher } from '../api/serverFetcher';
 import { addTask } from './AddTask';
 import { TaskDrop } from './TaskDrop';
 import clsx from 'clsx';
+import { useAlert } from './AlertContext';
 
 interface ITasksProps {
     task: Itasks;
@@ -25,6 +26,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const { getTasks, setInputValue } = useContext(addTask);
+    const { showAlert } = useAlert();
     const toggleTasks = async () => {
         setLoading(true);
         setError(false);
@@ -61,6 +63,12 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             setTaskFocusedID(task.id);
         }
     }, [isFocused, task]);
+
+    useEffect(() => {
+        if (error) {
+            showAlert('error', 'Error al procesar la solicitud');
+        }
+    }, [error]);
 
     /* useEffect(() => {
         if (!isFocused) {

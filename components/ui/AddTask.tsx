@@ -137,7 +137,7 @@ export default function AddTask() {
 
                         <div
                             className={`
-                            transform transition-all duration-300 h-1/2 ease-in-out
+                            transform transition-all duration-120 h-1/2 ease-in-out
                             ${
                                 showDropdown
                                     ? 'opacity-100 translate-y-2  pointer-events-auto'
