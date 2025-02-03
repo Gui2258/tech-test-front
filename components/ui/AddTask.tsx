@@ -126,6 +126,11 @@ export default function AddTask() {
                                 )}
                             </div>
                         </div>
+                        <div
+                            className={`h-[1px] bg-[rgba(231,236,239,1)] w-full transition-opacity duration-300 ${
+                                showDropdown ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        ></div>
 
                         <div
                             className={`
