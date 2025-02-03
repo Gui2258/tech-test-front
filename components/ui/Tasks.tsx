@@ -17,7 +17,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const { getTasks } = useContext(addTask);
+    const { getTasks, setInputValue } = useContext(addTask);
     const toggleTasks = async () => {
         setLoading(true);
         setError(false);
@@ -40,6 +40,12 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
     }, [task.content, value]);
 
     useEffect(() => {
+        if (isFocused) {
+            setInputValue('');
+        }
+    }, [isFocused]);
+
+    useEffect(() => {
         if (!isFocused) {
             setValue(task.content);
         }
@@ -48,13 +54,24 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
     return (
         <>
             <div
-                className={clsx('mx-[40px]', {
-                    'shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
-                        isFocused,
-                })}
+                id="task div"
+                className={clsx(
+                    'mx-[40px]',
+                    { ' h-[40px]': !isFocused },
+
+                    {
+                        'h-[116px] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
+                            isFocused,
+                    }
+                )}
             >
-                <div className={clsx('ml-4')}>
-                    <div className="flex items-center w-full gap-3 pt-2">
+                <div
+                    id="task content"
+                    className={clsx('ml-4', {
+                        'h-1/2': !isFocused,
+                    })}
+                >
+                    <div className="flex items-center w-full h-[56px] gap-3 pt-2">
                         <input
                             className="p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
                             type="checkbox"
@@ -72,13 +89,18 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                             isEditing={isEditing || isFocused}
                         />
                     </div>
-                    <TaskDrop
-                        isEditing={isEditing}
-                        isFocused={isFocused}
-                        value={value}
-                        tasID={task.id}
-                    />
                 </div>
+                <div
+                    className={`h-[1px] bg-[rgba(231,236,239,1)] w-full transition-opacity duration-300 ${
+                        isFocused ? 'opacity-100' : 'opacity-0'
+                    }`}
+                ></div>
+                <TaskDrop
+                    isEditing={isEditing}
+                    isFocused={isFocused}
+                    value={value}
+                    tasID={task.id}
+                />
             </div>
         </>
     );
