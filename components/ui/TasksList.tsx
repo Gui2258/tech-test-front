@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Tasks } from './Tasks';
 import { addTask } from './AddTask';
+import TasksListSkeleton from './TaskListSkeleton';
 
 export const TasksList: React.FunctionComponent = () => {
     const { tasksList, taskLoading, tasKerror, showDorp } = useContext(addTask);
@@ -13,10 +14,10 @@ export const TasksList: React.FunctionComponent = () => {
 
     return (
         <>
-            {taskLoading && !tasKerror && <h1>Loading ...</h1>}
+            {taskLoading && !tasKerror && <TasksListSkeleton />}
             {!taskLoading && tasKerror && <h1>Error loading task ...</h1>}
             {!taskLoading && !tasKerror && (
-                <ul className="">
+                <ul className="flex flex-col gap-2">
                     {tasksList?.map((task) => (
                         <Tasks
                             key={task.id}
