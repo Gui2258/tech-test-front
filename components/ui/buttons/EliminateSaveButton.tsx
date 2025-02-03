@@ -56,8 +56,7 @@ export const EliminateSaveButton: React.FunctionComponent<
                 <button
                     className="p-2 xl:py-3 xl:px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
                     onClick={() => {
-                        if (isEditing) updateTasks();
-                        else deleteTasks();
+                        updateTasks();
                     }}
                 >
                     <span className="hidden xl:inline-block">Guardar</span>
