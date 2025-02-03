@@ -8,11 +8,12 @@ interface IEliminateSaveButtonProps {
     value: string;
     isEditing: boolean;
     id: string;
+    setTaskFocused: (arg0: string) => void;
 }
 
 export const EliminateSaveButton: React.FunctionComponent<
     IEliminateSaveButtonProps
-> = ({ value, id, isEditing }) => {
+> = ({ value, id, isEditing, setTaskFocused }) => {
     const { getTasks } = useContext(addTask);
     const deleteTasks = async () => {
         try {
@@ -41,6 +42,7 @@ export const EliminateSaveButton: React.FunctionComponent<
                 }),
             });
             getTasks();
+            setTaskFocused('');
         } catch (error) {
             console.error('Error al actualizar tarea');
             console.error(error);
@@ -50,7 +52,12 @@ export const EliminateSaveButton: React.FunctionComponent<
     return (
         <>
             <div className="flex gap-1">
-                <button className="py-3 px-6 bg-[#EAF0F5] rounded hidden xl:flex h-10 disabled:opacity-50 relative">
+                <button
+                    onClick={() => {
+                        setTaskFocused('');
+                    }}
+                    className="py-3 px-6 bg-[#EAF0F5] rounded hidden xl:flex h-10 disabled:opacity-50 relative"
+                >
                     Cancelar
                 </button>
                 <button

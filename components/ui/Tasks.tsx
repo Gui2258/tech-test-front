@@ -8,12 +8,19 @@ import clsx from 'clsx';
 
 interface ITasksProps {
     task: Itasks;
+    taskFocusedID: string;
+    setTaskFocusedID: (arg0: string) => void;
 }
 
-export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
+export const Tasks: React.FunctionComponent<ITasksProps> = ({
+    task,
+    taskFocusedID,
+    setTaskFocusedID,
+}) => {
     const [value, setValue] = useState(task.content);
     const [isFocused, setIsFocused] = useState(false);
     const [isEditing, setisEditing] = useState(false);
+    const [showDrop, setShowDrop] = useState(false);
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -35,6 +42,15 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        if (taskFocusedID === task.id || isEditing) {
+            setShowDrop(true);
+        } else {
+            setShowDrop(false);
+        }
+    }, [task, taskFocusedID]);
+
     useEffect(() => {
         setisEditing(task.content !== value);
     }, [task.content, value]);
@@ -42,14 +58,15 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
     useEffect(() => {
         if (isFocused) {
             setInputValue('');
+            setTaskFocusedID(task.id);
         }
-    }, [isFocused]);
+    }, [isFocused, task]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (!isFocused) {
             setValue(task.content);
         }
-    }, [isFocused, task.content]);
+    }, [isFocused, task.content]); */
 
     return (
         <>
@@ -57,18 +74,18 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                 id="task div"
                 className={clsx(
                     'mx-[40px]',
-                    { ' h-[40px]': !isFocused },
+                    { ' h-[40px]': !showDrop },
 
                     {
                         'h-[116px] m-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
-                            isFocused,
+                            showDrop,
                     }
                 )}
             >
                 <div
                     id="task content"
                     className={clsx('ml-4', {
-                        'h-1/2': !isFocused,
+                        'h-1/2': !showDrop,
                     })}
                 >
                     <div className="flex items-center w-full h-[56px] gap-3 pt-2">
@@ -84,20 +101,21 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                         <TextFormater
                             setValue={setValue}
                             value={value}
-                            isFocused={isFocused}
+                            isFocused={showDrop}
                             setIsFocused={setIsFocused}
-                            isEditing={isEditing || isFocused}
+                            isEditing={isEditing || showDrop}
                         />
                     </div>
                 </div>
                 <div
                     className={`h-[1px] bg-[rgba(231,236,239,1)] w-full transition-opacity duration-300 ${
-                        isFocused ? 'opacity-100' : 'opacity-0'
+                        showDrop ? 'opacity-100' : 'opacity-0'
                     }`}
                 ></div>
                 <TaskDrop
+                    setTaskFocused={setTaskFocusedID}
                     isEditing={isEditing}
-                    isFocused={isFocused}
+                    isFocused={showDrop}
                     value={value}
                     tasID={task.id}
                 />

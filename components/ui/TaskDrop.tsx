@@ -12,6 +12,7 @@ interface ITaskDropProps {
     isEditing: boolean;
     value: string;
     tasID: string;
+    setTaskFocused: (arg0: string) => void;
 }
 
 export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
@@ -19,6 +20,7 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
     isFocused,
     value,
     tasID,
+    setTaskFocused,
 }) => {
     return (
         <>
@@ -46,6 +48,7 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
                     </div>
                     <div id="add cancel cta" className="self-end ml-auto">
                         <EliminateSaveButton
+                            setTaskFocused={setTaskFocused}
                             id={tasID}
                             isEditing={isEditing}
                             value={value}
