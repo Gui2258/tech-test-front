@@ -82,10 +82,13 @@ export default function AddTask() {
                             }
                         )}
                     >
-                        <div id="newTask and avatar div" className="flex h-1/2">
+                        <div
+                            id="newTask and avatar div"
+                            className="flex h-[40px] min-h-[40px] mb-3"
+                        >
                             <div
                                 id="input container"
-                                className={`flex  items-center ml-4 mr-2 mt-2 w-full gap-3`}
+                                className="flex items-center ml-4 mr-2 mt-2 w-full gap-3 relative top-0"
                             >
                                 <Plus size="24" />
                                 <div
@@ -128,7 +131,7 @@ export default function AddTask() {
                         </div>
                         <div
                             className={`h-[1px] bg-[rgba(231,236,239,1)] w-full transition-opacity duration-300 ${
-                                showDropdown ? 'opacity-100' : 'opacity-0'
+                                isFocused ? 'opacity-100' : 'opacity-0'
                             }`}
                         ></div>
 

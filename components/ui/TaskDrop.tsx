@@ -23,7 +23,7 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
     return (
         <>
             <div
-                className={`transform h-1/2 transition-all duration-300 ease-in-out
+                className={`transform h-1/2 transition-all duration-300 ease-in-out mb-3
                                     ${
                                         isFocused
                                             ? 'opacity-100 translate-y-2  pointer-events-auto'
@@ -52,14 +52,6 @@ export const TaskDrop: React.FunctionComponent<ITaskDropProps> = ({
                         />
                     </div>
                 </div>
-                {/* <div className="flex">
-                    <TaskButtons />
-                    <EliminateSaveButton
-                        id={tasID}
-                        isEditing={isEditing}
-                        value={value}
-                    />
-                </div> */}
             </div>
         </>
     );
