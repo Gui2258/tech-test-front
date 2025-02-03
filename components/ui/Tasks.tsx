@@ -73,7 +73,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({ task }) => {
                 >
                     <div className="flex items-center w-full h-[56px] gap-3 pt-2">
                         <input
-                            className="p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
+                            className=" p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
                             type="checkbox"
                             disabled={loading}
                             checked={task.checkDone}

@@ -30,7 +30,7 @@ export const ZeroButton: React.FunctionComponent = ({}) => {
                         { ' text-[#d2d5da]': isDisabled }
                     )}
                 >
-                    Normal
+                    Estimation
                 </span>
             </button>
         </>
