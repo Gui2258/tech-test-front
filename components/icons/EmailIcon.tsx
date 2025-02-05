@@ -7,7 +7,6 @@ interface IEmailIconProps {
 }
 
 export const EmailIcon: React.FunctionComponent<IEmailIconProps> = ({
-    isDisabled,
     size = '24',
 }) => {
     return (

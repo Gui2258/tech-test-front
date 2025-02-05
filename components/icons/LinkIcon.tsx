@@ -7,7 +7,6 @@ interface ILinkIconProps {
 }
 
 export const LinkIcon: React.FunctionComponent<ILinkIconProps> = ({
-    isDisabled,
     size = '24',
 }) => {
     return (
