@@ -16,20 +16,7 @@ export const EliminateSaveButton: React.FunctionComponent<
     IEliminateSaveButtonProps
 > = ({ value, id, isEditing, setTaskFocused, cancelFunction }) => {
     const { getTasks } = useContext(addTask);
-    const deleteTasks = async () => {
-        try {
-            await serverFetcher<Itasks>(`/tasks/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            getTasks();
-        } catch (error) {
-            console.error('Error al eliminar tarea');
-            console.error(error);
-        }
-    };
+
     const updateTasks = async () => {
         try {
             await serverFetcher<Itasks>(`/tasks/${id}`, {
