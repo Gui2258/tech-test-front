@@ -1,18 +1,16 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
 import { serverFetcher } from '@/components/api/serverFetcher';
 import PlusIcon from '../../icons/PlusIcon';
+import { useAlert } from '../AlertContext';
 
-interface IAddCancelButtonProps {}
-
-export const AddCancelButton: React.FunctionComponent<
-    IAddCancelButtonProps
-> = () => {
+export const AddCancelButton: React.FunctionComponent = () => {
     const { taskText, getTasks, setInputValue } = useContext(addTask);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const { showAlert } = useAlert();
 
     const postTasks = async () => {
         setLoading(true);
@@ -38,6 +36,14 @@ export const AddCancelButton: React.FunctionComponent<
         }
     };
 
+    useEffect(() => {
+        if (error) {
+            showAlert('error', 'Error al comunicar con el servidor', 4000);
+            console.error('Error al comunicar con el servidor');
+            setError(false);
+        }
+    }, [error]);
+
     return (
         <>
             <div className="flex gap-1 ">
@@ -57,6 +63,7 @@ export const AddCancelButton: React.FunctionComponent<
                     )}
                 </button>
                 <button
+                    data-testid="add-button"
                     className="p-2 xl:py-3 xl:px-6 bg-[#0D55CF] rounded text-white h-10 disabled:opacity-50 relative flex items-center"
                     disabled={loading}
                     onClick={() => {

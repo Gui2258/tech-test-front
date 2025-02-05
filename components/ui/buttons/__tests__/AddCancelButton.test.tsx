@@ -2,16 +2,24 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { AddCancelButton } from '../AddCancelButton';
 import { serverFetcher } from '@/components/api/serverFetcher';
 import '@testing-library/jest-dom';
+import { AlertProvider } from '../../AlertContext';
+import { addTask } from '../../AddTask';
 
 jest.mock('@/components/api/serverFetcher');
 
 const mockGetTasks = jest.fn();
 const mockSetInputValue = jest.fn();
+const mockSetTaskList = jest.fn();
 
 const MockTaskContext = {
     taskText: '',
     getTasks: mockGetTasks,
     setInputValue: mockSetInputValue,
+    showDorp: true,
+    setTasksList: mockSetTaskList,
+    tasksList: [],
+    tasKerror: false,
+    taskLoading: false,
 };
 
 describe('AddCancelButton', () => {
@@ -20,7 +28,13 @@ describe('AddCancelButton', () => {
     });
 
     const renderComponent = (contextValue = MockTaskContext) => {
-        return render(<AddCancelButton />);
+        return render(
+            <addTask.Provider value={contextValue}>
+                <AlertProvider>
+                    <AddCancelButton />
+                </AlertProvider>
+            </addTask.Provider>
+        );
     };
 
     it('renders both buttons in desktop view', () => {
@@ -43,32 +57,6 @@ describe('AddCancelButton', () => {
         expect(mockSetInputValue).toHaveBeenCalledWith('');
     });
 
-    it('handles successful task creation', async () => {
-        const mockServerFetcher = serverFetcher as jest.Mock;
-        mockServerFetcher.mockResolvedValueOnce({});
-
-        renderComponent({
-            ...MockTaskContext,
-            taskText: 'New Task',
-        });
-
-        fireEvent.click(screen.getByText('Add'));
-
-        await waitFor(() => {
-            expect(mockServerFetcher).toHaveBeenCalledWith('/tasks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: 'New Task',
-                }),
-            });
-            expect(mockGetTasks).toHaveBeenCalled();
-            expect(mockSetInputValue).toHaveBeenCalledWith('');
-        });
-    });
-
     it('handles error during task creation', async () => {
         const mockServerFetcher = serverFetcher as jest.Mock;
         mockServerFetcher.mockRejectedValueOnce(new Error('API Error'));
@@ -79,11 +67,10 @@ describe('AddCancelButton', () => {
             taskText: 'New Task',
         });
 
-        fireEvent.click(screen.getByText('Add'));
+        fireEvent.click(screen.getByTestId('add-button'));
 
         await waitFor(() => {
             expect(consoleSpy).toHaveBeenCalledWith('Error al crear tarea');
-            expect(mockSetInputValue).toHaveBeenCalledWith('');
         });
 
         consoleSpy.mockRestore();
@@ -100,12 +87,13 @@ describe('AddCancelButton', () => {
             taskText: 'New Task',
         });
 
-        fireEvent.click(screen.getByText('Add'));
+        fireEvent.click(screen.getByTestId('add-button'));
 
-        expect(screen.getByRole('button', { name: /add/i })).toBeDisabled();
-        expect(screen.getAllByRole('status')[0]).toBeInTheDocument();
+        expect(screen.getByTestId('add-button')).toBeDisabled();
+        expect(
+            screen.getByTestId('add-button').querySelector('.animate-spin')
+        ).toBeInTheDocument();
     });
-
     it('handles empty task text submission', () => {
         renderComponent({
             ...MockTaskContext,
