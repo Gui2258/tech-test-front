@@ -27,7 +27,6 @@ export const TagProcesor = (text: string) => {
                     key={index}
                     className="inline-flex font-medium  items-center gap-1 px-2 py-1 rounded-xl text-[#189e71] bg-[#a9f1d9]"
                 >
-                    {/* <FaAt className="w-3 h-3" /> */}
                     {part}
                 </span>
             );

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { addTask } from '../AddTask';
 import { Itasks } from '@/utils/types';
 import { serverFetcher } from '@/components/api/serverFetcher';
-import PlusIcon from '../PlusIcon';
+import PlusIcon from '../../icons/PlusIcon';
 
 interface IAddCancelButtonProps {}
 
