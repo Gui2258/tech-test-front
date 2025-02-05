@@ -20,7 +20,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-    title: 'Cuban engineering jobs test',
+    title: 'Task List',
     description: 'Technical test for Cuban engineering jobs',
 };
 
