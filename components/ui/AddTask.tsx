@@ -93,7 +93,7 @@ export default function AddTask() {
                                 <Plus size="24" />
                                 <div
                                     id="text container"
-                                    className="relative flex flex-1 justify-between gap-3 "
+                                    className="relative flex flex-1 justify-between gap-3 overflow-hidden break-words whitespace-normal"
                                 >
                                     <TextFormater
                                         setValue={setInputValue}
@@ -102,6 +102,7 @@ export default function AddTask() {
                                         setIsFocused={setIsFocused}
                                     />
                                 </div>
+
                                 {showDropdown && (
                                     <div className="relative">
                                         <div
