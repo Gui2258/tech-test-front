@@ -16,7 +16,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     isEditing = true,
 }) => {
     const commonStyles =
-        'w-full font-mono text-base leading-normal whitespace-pre-wrap break-words text-base leading-6 tracking-wider font-roboto min-h-[24px]';
+        'w-full font-mono  text-base leading-normal whitespace-pre-wrap break-words text-base leading-6 tracking-wider font-roboto min-h-[24px]';
 
     const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setValue(e.target.value);
@@ -42,7 +42,6 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
                 onFocus={() => setIsFocused(true)}
                 spellCheck="false"
                 onBlur={() => setIsFocused(false)}
-                rows={1}
             />
         </div>
     );
