@@ -85,18 +85,21 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             <div
                 id="task div"
                 className={clsx(
-                    'sm:mx-[40px] mx-1',
-                    { 'h-[calc(100%-56px)]': !showDrop }, // Changed from min-h-[60px]
+                    'sm:mx-[40px] mx-1 ',
+                    { 'min-h-[56]': !showDrop }, // Changed from min-h-[60px]
                     {
-                        'h-[116px] m-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
+                        'min-h-[116px] m-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                             showDrop,
                     }
                 )}
             >
-                <div id="task content" className="ml-4 h-auto">
+                <div
+                    id="task content"
+                    className="ml-4 flex-grow overflow-visible  h-auto"
+                >
                     <div
                         id="text-wrapper"
-                        className="flex items-start w-full min-h-[56px] gap-3 pt-2"
+                        className="flex items-start   w-full min-h-[56px] gap-3 pt-2 overflow-visible break-words"
                     >
                         <input
                             className=" p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
