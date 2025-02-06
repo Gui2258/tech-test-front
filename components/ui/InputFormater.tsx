@@ -36,7 +36,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
                 value={value}
                 onChange={handleInput}
                 placeholder="Type to add new task"
-                className={`relative w-full resize-none ${
+                className={`relative w-full resize-none overflow-visible ${
                     isEditing ? '' : ' cursor-pointer'
                 } bg-transparent outline-none border-none text-transparent caret-[#0C66FF] ${commonStyles}`}
                 onFocus={() => setIsFocused(true)}
