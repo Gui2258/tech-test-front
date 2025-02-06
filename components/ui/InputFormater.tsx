@@ -40,6 +40,7 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
                     isEditing ? '' : ' cursor-pointer'
                 } bg-transparent outline-none border-none text-transparent caret-[#0C66FF] ${commonStyles}`}
                 onFocus={() => setIsFocused(true)}
+                spellCheck="false"
                 onBlur={() => setIsFocused(false)}
                 rows={1}
             />

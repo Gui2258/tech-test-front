@@ -104,6 +104,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
                         <input
                             className=" p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
                             type="checkbox"
+                            spellCheck="false"
                             disabled={loading}
                             checked={task.checkDone}
                             onChange={() => {

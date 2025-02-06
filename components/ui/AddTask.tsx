@@ -75,7 +75,7 @@ export default function AddTask() {
                         id="main container"
                         className={clsx(
                             'flex mx-10 flex-col',
-                            { ' min-h-[40px]': !showDropdown },
+                            { 'h-[40px]': !showDropdown },
                             {
                                 'min-h-[116px] mb-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                                     showDropdown,
