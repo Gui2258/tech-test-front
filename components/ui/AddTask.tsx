@@ -74,21 +74,21 @@ export default function AddTask() {
                     <div
                         id="main container"
                         className={clsx(
-                            'flex  mx-10 flex-col',
-                            { ' h-[40px]': !showDropdown },
+                            'flex mx-10 flex-col',
+                            { ' min-h-[40px]': !showDropdown },
                             {
-                                ' h-[116px] mb-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
+                                'min-h-[116px] mb-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                                     showDropdown,
                             }
                         )}
                     >
                         <div
                             id="newTask and avatar div"
-                            className="flex h-[40px] min-h-[40px] mb-3"
+                            className="flex min-h-[40px] mb-3 flex-grow"
                         >
                             <div
                                 id="input container"
-                                className="flex items-center ml-4 mr-2 mt-2 w-full gap-3 relative top-0"
+                                className="flex items-start ml-4 mr-2 mt-2 w-full gap-3 relative flex-grow"
                             >
                                 <Plus size="24" />
                                 <div

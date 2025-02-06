@@ -16,27 +16,32 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     isEditing = true,
 }) => {
     const commonStyles =
-        'w-full font-mono text-base leading-normal whitespace-pre text-base leading-6 tracking-wider font-roboto';
+        'w-full font-mono text-base leading-normal whitespace-pre-wrap break-words text-base leading-6 tracking-wider font-roboto min-h-[24px]';
+
+    const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setValue(e.target.value);
+        e.target.style.height = 'auto';
+        e.target.style.height = e.target.scrollHeight + 'px';
+    };
 
     return (
         <div className="relative flex-1 w-full">
             <div
-                className={`absolute w-full pointer-events-none ${commonStyles} '
-                `}
+                className={`absolute w-full pointer-events-none ${commonStyles}`}
             >
                 {isEditing ? processText(value) : TagProcesor(value)}
             </div>
 
-            <input
-                type="text"
+            <textarea
                 value={value}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={handleInput}
                 placeholder="Type to add new task"
-                className={`relative w-full ${
+                className={`relative w-full resize-none ${
                     isEditing ? '' : ' cursor-pointer'
-                } bg-transparent outline-none border-none text-transparent caret-[#0C66FF] border border-gray-300 ${commonStyles}`}
+                } bg-transparent outline-none border-none text-transparent caret-[#0C66FF] ${commonStyles}`}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
+                rows={1}
             />
         </div>
     );
