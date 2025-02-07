@@ -21,7 +21,7 @@ export const TasksList: React.FunctionComponent = () => {
                 </h1>
             )}
             {!taskLoading && !tasKerror && (
-                <ul className="flex flex-col ">
+                <ul className="flex flex-col mt-3">
                     {tasksList?.map((task) => (
                         <Tasks
                             key={task.id}

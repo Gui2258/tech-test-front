@@ -7,7 +7,6 @@ interface ISaveIconProps {
 }
 
 export const SaveIcon: React.FunctionComponent<ISaveIconProps> = ({
-    isDisabled,
     size = '24',
 }) => {
     return (
