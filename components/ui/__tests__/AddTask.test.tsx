@@ -70,7 +70,17 @@ describe('AddTask', () => {
         fireEvent.focus(input);
 
         const container = screen.getByText('Open').closest('#main\\ container');
-        expect(container).toHaveClass('h-[116px]');
+        expect(container).toHaveClass(
+            'flex',
+            'sm:mx-10',
+            'mx-2',
+            'flex-col',
+            'min-h-[116px]',
+            'mb-4',
+            'shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)]',
+            'border-[1px]',
+            'border-[#F1F3F4]'
+        );
     });
 
     it('handles task loading state', async () => {

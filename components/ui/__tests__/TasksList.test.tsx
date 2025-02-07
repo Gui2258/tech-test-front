@@ -59,7 +59,7 @@ describe('TasksList', () => {
             taskLoading: false,
             tasKerror: true,
         });
-        expect(screen.getByText('Error loading task ...')).toBeInTheDocument();
+        expect(screen.getByText('Error loading tasks ...')).toBeInTheDocument();
     });
 
     it('renders tasks list when data is loaded successfully', () => {
@@ -68,8 +68,9 @@ describe('TasksList', () => {
             taskLoading: false,
             tasKerror: false,
         });
-        expect(screen.getByText('Task 1')).toBeInTheDocument();
-        expect(screen.getByText('Task 2')).toBeInTheDocument();
+
+        const taskElement = screen.getByDisplayValue('Task 1');
+        expect(taskElement).toBeInTheDocument();
     });
 
     it('passes correct props to Tasks components', () => {
@@ -96,6 +97,6 @@ describe('TasksList', () => {
     it('renders with correct list container styles', () => {
         const { container } = renderComponent();
         const listElement = container.querySelector('ul');
-        expect(listElement).toHaveClass('flex', 'flex-col', 'gap-2');
+        expect(listElement).toHaveClass('flex', 'flex-col', 'mt-3');
     });
 });

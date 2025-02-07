@@ -44,10 +44,12 @@ describe('ColoredInput', () => {
 
     it('applies correct base styles', () => {
         const { container } = renderComponent();
-        const input = container.querySelector('input');
-        expect(input).toHaveClass(
+        const textarea = container.querySelector('textarea');
+        expect(textarea).toHaveClass(
             'relative',
             'w-full',
+            'resize-none',
+            'overflow-hidden',
             'bg-transparent',
             'outline-none',
             'border-none',

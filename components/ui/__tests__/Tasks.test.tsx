@@ -49,7 +49,8 @@ describe('Tasks', () => {
 
     it('renders task content correctly', () => {
         renderComponent();
-        expect(screen.getByText('Test Task')).toBeInTheDocument();
+        const textElement = screen.getByDisplayValue('Test Task');
+        expect(textElement).toBeInTheDocument();
     });
 
     it('shows checkbox with correct checked state', () => {
@@ -103,9 +104,9 @@ describe('Tasks', () => {
         });
 
         const taskDiv = screen
-            .getByText('Test Task')
+            .getAllByText('Test Task')[0]
             .closest('div[id="task div"]');
-        expect(taskDiv).toHaveClass('h-[116px]');
+        expect(taskDiv).toHaveClass('min-h-[100px]');
     });
 
     it('updates task content when editing', () => {
