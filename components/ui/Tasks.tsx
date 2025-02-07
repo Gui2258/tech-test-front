@@ -87,7 +87,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             <div
                 id="task div"
                 className={clsx(
-                    'sm:mx-[40px] mx-1 ',
+                    'sm:mx-[40px] mx-2 ',
                     { 'min-h-[56px]': !showDrop },
                     `h-[${height}]`,
                     {
@@ -102,12 +102,12 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
                 >
                     <div
                         id="text-wrapper"
-                        className="flex items-start  w-full min-h-[56px] gap-3 pt-2 overflow-visible break-words"
+                        className="flex items-start   w-full min-h-[56px] gap-3 pt-2 overflow-visible break-words"
                     >
                         <input
                             data-testid="task-checkbox"
                             className={`p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px] ${
-                                showDrop ? '' : 'mt-1'
+                                showDrop ? '' : 'pt-5'
                             }`}
                             type="checkbox"
                             spellCheck="false"

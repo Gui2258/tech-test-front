@@ -108,7 +108,7 @@ describe('Tasks', () => {
             .closest('div[id="task div"]');
         expect(taskDiv).toHaveClass(
             'sm:mx-[40px]',
-            'mx-1',
+            'mx-2',
             'h-[77px]',
             'min-h-[116px]',
             'm-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)]',
