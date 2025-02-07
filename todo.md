@@ -1,1 +1,0 @@
-7 ver error de texto que se desbordado
