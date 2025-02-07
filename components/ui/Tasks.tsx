@@ -63,13 +63,13 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             setInputValue('');
             setTaskFocusedID(task.id);
         }
-    }, [isFocused, task]);
+    }, [isFocused, setInputValue, setTaskFocusedID, task]);
 
     useEffect(() => {
         if (error) {
             showAlert('error', 'Error al procesar la solicitud');
         }
-    }, [error]);
+    }, [error, showAlert]);
 
     /* useEffect(() => {
         if (!isFocused) {
