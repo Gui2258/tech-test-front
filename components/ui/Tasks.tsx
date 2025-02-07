@@ -106,7 +106,9 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
                     >
                         <input
                             data-testid="task-checkbox"
-                            className=" p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px]"
+                            className={`p-3 w-6 py-4 h-6 border-[#8A94A6] rounded border-[1px] ${
+                                showDrop ? '' : 'pt-5'
+                            }`}
                             type="checkbox"
                             spellCheck="false"
                             disabled={loading}
