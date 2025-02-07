@@ -6,15 +6,15 @@ exports[`renders homepage unchanged 1`] = `
     class="mt-14"
   >
     <div
-      class="flex  mx-10 flex-col  h-[40px]"
+      class="flex sm:mx-10 mx-2 flex-col h-[40px]"
       id="main container"
     >
       <div
-        class="flex h-[40px] min-h-[40px] mb-3"
+        class="flex min-h-[40px] mb-3 flex-grow"
         id="newTask and avatar div"
       >
         <div
-          class="flex items-center ml-4 mr-2 mt-2 w-full gap-3 relative top-0"
+          class="flex items-start ml-4 mr-2 mt-2 w-full gap-3 relative flex-grow"
           id="input container"
         >
           <svg
@@ -51,21 +51,19 @@ exports[`renders homepage unchanged 1`] = `
             />
           </svg>
           <div
-            class="relative flex flex-1 justify-between gap-3 "
+            class="relative flex flex-1 justify-between gap-3 overflow-hidden break-words whitespace-normal"
             id="text container"
           >
             <div
               class="relative flex-1 w-full"
             >
               <div
-                class="absolute w-full pointer-events-none w-full font-mono text-base leading-normal whitespace-pre text-base leading-6 tracking-wider font-roboto '
-                "
+                class="absolute w-full pointer-events-none w-full font-mono text-base leading-normal whitespace-pre-wrap break-words leading-6 tracking-wider font-roboto min-h-[24px] max-w-full overflow-wrap-anywhere"
               />
-              <input
-                class="relative w-full  bg-transparent outline-none border-none text-transparent caret-[#0C66FF] border border-gray-300 w-full font-mono text-base leading-normal whitespace-pre text-base leading-6 tracking-wider font-roboto"
+              <textarea
+                class="relative w-full resize-none overflow-visible  bg-transparent  outline-none border-none text-transparent caret-[#0C66FF] w-full font-mono text-base leading-normal whitespace-pre-wrap break-words leading-6 tracking-wider font-roboto min-h-[24px] max-w-full overflow-wrap-anywhere"
                 placeholder="Type to add new task"
-                type="text"
-                value=""
+                spellcheck="false"
               />
             </div>
           </div>

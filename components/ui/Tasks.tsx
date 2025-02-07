@@ -63,12 +63,14 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             setInputValue('');
             setTaskFocusedID(task.id);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isFocused, task]);
 
     useEffect(() => {
         if (error) {
             showAlert('error', 'Error al procesar la solicitud');
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [error]);
 
     /* useEffect(() => {
@@ -76,9 +78,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
             setValue(task.content);
         }
     }, [isFocused, task.content]); */
-    const height =
-        ((86 * task.content.length) / 10).toFixed().toString() + 'px';
-    console.log('height', height);
+
     const cancel = () => {
         setTaskFocusedID('');
     };
@@ -89,7 +89,6 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
                 className={clsx(
                     'sm:mx-[40px] mx-1 ',
                     { 'min-h-[56px]': !showDrop },
-                    `h-[${height}]`,
                     {
                         'min-h-[116px] m-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)] border-[1px] border-[#F1F3F4]':
                             showDrop,
