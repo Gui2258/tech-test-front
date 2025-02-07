@@ -1,6 +1,6 @@
 import { TagProcesor } from '../utils/TagCreator';
 import { processText } from '../utils/TextProcesor';
-import { useEffect, useRef } from 'react'; // Importar useRef y useEffect
+import { useEffect, useRef } from 'react';
 
 interface ITextFormaterProps {
     value: string;
@@ -16,9 +16,8 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     setIsFocused,
     isEditing = true,
 }) => {
-    const textareaRef = useRef<HTMLTextAreaElement>(null); // Crear referencia
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-    // Actualizar altura cada vez que cambia el valor
     useEffect(() => {
         if (textareaRef.current) {
             textareaRef.current.style.height = 'auto';
@@ -36,14 +35,13 @@ const ColoredInput: React.FunctionComponent<ITextFormaterProps> = ({
     return (
         <div className="relative flex-1 w-full">
             <div
-                // Añadir h-full para que herede la altura del padre
                 className={`absolute w-full h-full pointer-events-none ${commonStyles}`}
             >
                 {isEditing ? processText(value) : TagProcesor(value)}
             </div>
 
             <textarea
-                ref={textareaRef} // Asignar la referencia
+                ref={textareaRef}
                 value={value}
                 onChange={handleInput}
                 placeholder="Type to add new task"
