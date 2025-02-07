@@ -106,7 +106,15 @@ describe('Tasks', () => {
         const taskDiv = screen
             .getAllByText('Test Task')[0]
             .closest('div[id="task div"]');
-        expect(taskDiv).toHaveClass('min-h-[100px]');
+        expect(taskDiv).toHaveClass(
+            'sm:mx-[40px]',
+            'mx-1',
+            'h-[77px]',
+            'min-h-[116px]',
+            'm-2 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04),0px_8px_16px_0px_rgba(0,0,0,0.04)]',
+            'border-[1px]',
+            'border-[#F1F3F4]'
+        );
     });
 
     it('updates task content when editing', () => {
